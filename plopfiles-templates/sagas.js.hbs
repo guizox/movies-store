@@ -1,0 +1,33 @@
+import { takeLatest, put, all } from 'redux-saga/effects';
+import { isRequestOK } from 'utils/helpers';
+import { {{ moduleName }}Request, {{ moduleName }}Fulfilled, {{ moduleName }}Rejected } from './actions';
+import { showErrorNotification } from 'modules/ui/notifications/actions';
+import endpoints, { api } from './endpoints';
+
+function* {{ moduleName }}RequestSaga() {
+   try {
+      const { status, data } = yield api.get({
+      url: endpoints.request(),
+      params: {}
+   });
+   
+   return yield isRequestOK(status)
+      ? all([put({{ moduleName }}Fulfilled(data))])
+      : all([put({{ moduleName }}Rejected())]);
+  
+   } catch (responseWithError) {
+      return yield responseWithError &&
+      responseWithError.response &&
+      responseWithError.response.status === 452
+         ? put({{ moduleName }}Rejected())
+         : all([
+             put(showErrorNotification({
+                message: 'Não foi possível importar os dados de {{ moduleName }}.'
+             })
+             ),
+             put({{ moduleName }}Rejected())
+          ]);
+   }
+}
+
+export default [takeLatest({{ moduleName }}Request, {{ moduleName }}RequestSaga)];

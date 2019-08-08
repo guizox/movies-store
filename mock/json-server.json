@@ -1,0 +1,6 @@
+{
+  "port": 4000,
+  "middlewares": "mock/login-middleware.js",
+  "delay": 50000,
+  "watch": true
+}

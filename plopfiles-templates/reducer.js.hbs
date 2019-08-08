@@ -1,0 +1,28 @@
+import { handleActions } from 'redux-actions';
+import constants from './constants';
+
+const { {{upperCase moduleName}}_REQUEST, {{upperCase moduleName}}_FULFILLED, {{upperCase moduleName}}_REJECTED } =
+constants;
+
+const initialState = {
+   isLoading: false,
+   data: []
+};
+
+export default handleActions({
+   [{{upperCase moduleName}}_REQUEST]: state => ({
+      ...state,
+      isLoading: true
+   }),
+   [{{upperCase moduleName}}_FULFILLED]: (state, { payload }) => ({
+      ...state,
+      isLoading: false,
+      data: payload
+   }),
+   [{{upperCase moduleName}}_REJECTED]: state => ({
+      ...state,
+      isLoading: false
+   })
+   },
+   initialState
+);

@@ -1,0 +1,12 @@
+import { createAction } from 'redux-actions';
+import constants from './constants';
+
+const {
+   {{upperCase moduleName}}_REQUEST,
+   {{upperCase moduleName}}_FULFILLED,
+   {{upperCase moduleName}}_REJECTED
+} = constants;
+
+export const {{moduleName}}Request = createAction({{upperCase moduleName}}_REQUEST);
+export const {{moduleName}}Fulfilled = createAction({{upperCase moduleName}}_FULFILLED);
+export const {{moduleName}}Rejected = createAction({{upperCase moduleName}}_REJECTED);
