@@ -5,7 +5,6 @@ import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
 import Paper from '@material-ui/core/Paper';
 import { moviesChangeStars } from 'modules/movies/actions';
-import Button from '@material-ui/core/Button';
 import withWidth, { isWidthUp } from '@material-ui/core/withWidth';
 import PropTypes from 'prop-types';
 
@@ -30,15 +29,10 @@ const StarFilter = props => (
           name="rate1"
           starCount={5}
           value={props.stars}
-          onStarClick={star => props.moviesChangeStars(star)}
+          onStarClick={star =>
+            props.moviesChangeStars({ star, apiToCall: props.search !== '' ? 'search' : '' })
+          }
         />
-        <Button
-          disabled={props.stars === 0}
-          onClick={() => props.moviesChangeStars(0)}
-          style={{ marginBottom: '10px' }}
-        >
-          Clear Stars
-        </Button>
       </Grid>
     </Grid>
   </Paper>
@@ -48,9 +42,10 @@ StarFilter.propTypes = {
   width: PropTypes.string.isRequired,
   stars: PropTypes.number.isRequired,
   moviesChangeStars: PropTypes.func.isRequired,
+  search: PropTypes.string.isRequired,
 };
 
-const mapStateToProps = ({ movies }) => ({ stars: movies.selectedStars });
+const mapStateToProps = ({ movies }) => ({ stars: movies.selectedStars, search: movies.search });
 
 export default connect(
   mapStateToProps,

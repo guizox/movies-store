@@ -13,7 +13,7 @@ class Home extends React.Component {
   constructor(props) {
     super(props);
     props.moviesChangeSearch('');
-    props.moviesChangeStars(0);
+    props.moviesChangeStars({ star: 5 });
   }
 
   render() {

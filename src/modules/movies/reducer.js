@@ -37,7 +37,8 @@ export default handleActions(
     }),
     [MOVIES_CHANGE_STARS]: (state, { payload }) => ({
       ...state,
-      selectedStars: payload,
+      selectedStars: payload.star,
+      isLoading: true,
     }),
   },
   initialState,

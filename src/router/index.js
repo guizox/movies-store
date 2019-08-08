@@ -2,7 +2,7 @@
 import React, { Fragment } from 'react';
 import { Route, Switch } from 'react-router-dom';
 import { ConnectedRouter } from 'connected-react-router';
-import Home from 'containers/Home';
+import Home from '../containers/home';
 import SearchMovies from 'components/SearchMovies';
 
 const Router = ({ history }) => {
