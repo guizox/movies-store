@@ -1,5 +1,15 @@
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+## Starting the project
+
+Open a terminal in the project folder after cloned it and run the following steps :
+
+npm install
+
+npm start.
+
+It will open a browser with http://localhost:3000
+
 ## Why React + Redux + Saga Middleware for this project?
 
 In my point of view, saga is the best middleware for react in now days.
@@ -27,15 +37,6 @@ As this project import the reducers/sagas by it self using the mapFiles in modul
 To analize the bundle, run the following code : npm run analize.
 ![alt text](https://drive.google.com/uc?export=view&id=1VZYGhlutSsQWKTT-e4wxF1hnEFCQkQJI)
 
-## Starting the project
-
-Open a terminal in the project folder after cloned it and run the following steps :
-
-npm install
-
-npm start.
-
-It will open a browser with http://localhost:3000
 
 ## Aliases
 
