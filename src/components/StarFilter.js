@@ -30,6 +30,7 @@ const StarFilter = props => (
           starCount={5}
           value={props.stars}
           onStarClick={star =>
+            star !== props.stars &&
             props.moviesChangeStars({ star, apiToCall: props.search !== '' ? 'search' : '' })
           }
         />
