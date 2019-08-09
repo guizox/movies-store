@@ -7,6 +7,7 @@ const {
   MOVIES_REJECTED,
   MOVIES_CHANGE_SEARCH,
   MOVIES_CHANGE_STARS,
+  MOVIES_SET_SELECTED_MOVIE,
 } = constants;
 
 const initialState = {
@@ -14,6 +15,7 @@ const initialState = {
   data: [],
   search: '',
   selectedStars: 0,
+  selectedMovie: null,
 };
 
 export default handleActions(
@@ -39,6 +41,10 @@ export default handleActions(
       ...state,
       selectedStars: payload.star,
       isLoading: true,
+    }),
+    [MOVIES_SET_SELECTED_MOVIE]: (state, { payload }) => ({
+      ...state,
+      selectedMovie: state.data.find(item => item.id === parseInt(payload, 10)),
     }),
   },
   initialState,
