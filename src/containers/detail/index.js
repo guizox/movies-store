@@ -106,7 +106,7 @@ class Detail extends React.Component {
         </Grid>
         <Container fixed className={classes.contentContainer}>
           <Grid container direction="row" spacing={1}>
-            <Grid item xs={12} md={3}>
+            <Grid item xs={12} lg={3}>
               <img
                 src={
                   selectedMovie.poster_path
@@ -118,7 +118,7 @@ class Detail extends React.Component {
               />
             </Grid>
 
-            <Grid item xs={12} md={9}>
+            <Grid item xs={12} lg={9}>
               <Grid item xs={12} className={classes.typographyContainer}>
                 <Typography variant="h1" className={classes.typography}>
                   {'Movie Details & Credits'}
