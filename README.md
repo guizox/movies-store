@@ -1,8 +1,18 @@
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Bundle Size
+To analize the bundle, run the following code : npm run analize.
+![alt text](https://drive.google.com/uc?export=view&id=1VZYGhlutSsQWKTT-e4wxF1hnEFCQkQJI)
 
-![alt text](https://drive.google.com/file/d/1VZYGhlutSsQWKTT-e4wxF1hnEFCQkQJI/view?usp=sharing)
+## Starting the project
+
+Open a terminal in the project folder after cloned it and run the following steps :
+
+npm install
+
+npm start.
+
+It will open a browser with http://localhost:3000
 
 ## Available Scripts
 

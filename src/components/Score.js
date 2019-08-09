@@ -9,7 +9,6 @@ const styles = {
     height: '80px',
     backgroundColor: '#fc3',
     borderRadius: '5px',
-    marginTop: '40px',
   },
   text: {
     padding: '20px',
@@ -17,8 +16,13 @@ const styles = {
   },
 };
 
-const Score = ({ average, classes }) => (
-  <Grid item xs={12} className={classes.container}>
+const Score = ({ average, classes, right }) => (
+  <Grid
+    item
+    xs={12}
+    className={classes.container}
+    style={{ marginLeft: right ? '45%' : '', marginTop: right ? '0px' : '40px' }}
+  >
     <h1 className={classes.text}>{average}</h1>
   </Grid>
 );
@@ -26,6 +30,7 @@ const Score = ({ average, classes }) => (
 Score.propTypes = {
   average: PropTypes.number.isRequired,
   classes: PropTypes.shape({}).isRequired,
+  right: PropTypes.bool.isRequired,
 };
 
 export default withStyles(styles)(Score);

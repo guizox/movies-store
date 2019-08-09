@@ -9,11 +9,16 @@ import Typography from '@material-ui/core/Typography';
 import classNames from 'classnames';
 import PropTypes from 'prop-types';
 import moment from 'moment';
+import withWidth, { isWidthUp } from '@material-ui/core/withWidth';
 
 const styles = {
   header: {
     backgroundColor: 'black',
     height: '300px',
+  },
+  headerMobile: {
+    backgroundColor: 'black',
+    height: '520px',
   },
   title: {
     fontWeight: 600,
@@ -57,13 +62,18 @@ class Detail extends React.Component {
   }
 
   render() {
-    const { selectedMovie, classes } = this.props;
+    const { selectedMovie, classes, width } = this.props;
+    const isMobile = !isWidthUp('md', width);
     return selectedMovie ? (
       <Fragment>
-        <Grid container direction="row" className={classes.header}>
+        <Grid
+          container
+          direction="row"
+          className={!isMobile ? classes.header : classes.headerMobile}
+        >
           <Container fixed>
             <Grid container direction="row" xs={12}>
-              <Grid item xs={6}>
+              <Grid item xs={12} md={6}>
                 <h1 className={classes.title}>{selectedMovie.title}</h1>
                 <h3 className={classes.title}>
                   {selectedMovie.release_date ? selectedMovie.release_date.substr(0, 4) : ''}
@@ -74,11 +84,12 @@ class Detail extends React.Component {
                     <h2 className={classNames(classes.score, classes.title)}>Score </h2>
                   </Grid>
                   <Grid item xs={6}>
-                    <Score average={selectedMovie.vote_average} />
+                    <Score average={selectedMovie.vote_average} right={isMobile} />
                   </Grid>
                 </Grid>
+                {isMobile && <hr />}
               </Grid>
-              <Grid item xs={6} className={classes.rightPanel}>
+              <Grid item xs={12} md={6} className={classes.rightPanel}>
                 <h1 className={classes.title}>{`${
                   selectedMovie.original_language
                     ? selectedMovie.original_language.toUpperCase()
@@ -95,7 +106,7 @@ class Detail extends React.Component {
         </Grid>
         <Container fixed className={classes.contentContainer}>
           <Grid container direction="row" spacing={1}>
-            <Grid item xs={3}>
+            <Grid item xs={12} md={3}>
               <img
                 src={
                   selectedMovie.poster_path
@@ -107,7 +118,7 @@ class Detail extends React.Component {
               />
             </Grid>
 
-            <Grid item xs={9}>
+            <Grid item xs={12} md={9}>
               <Grid item xs={12} className={classes.typographyContainer}>
                 <Typography variant="h1" className={classes.typography}>
                   {'Movie Details & Credits'}
@@ -140,6 +151,7 @@ Detail.propTypes = {
   selectedMovie: PropTypes.shape({}).isRequired,
   moviesSetSelectedMovie: PropTypes.func.isRequired,
   classes: PropTypes.shape({}).isRequired,
+  width: PropTypes.string.isRequired,
 };
 
 const mapStateToProps = ({ movies }) => ({ selectedMovie: movies.selectedMovie });
@@ -147,4 +159,4 @@ const mapStateToProps = ({ movies }) => ({ selectedMovie: movies.selectedMovie }
 export default connect(
   mapStateToProps,
   { moviesSetSelectedMovie },
-)(withStyles(styles)(Detail));
+)(withStyles(styles)(withWidth()(Detail)));
