@@ -3,6 +3,7 @@ import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import InputBase from '@material-ui/core/InputBase';
 import { makeStyles } from '@material-ui/core/styles';
+import Typography from '@material-ui/core/Typography';
 import Button from '@material-ui/core/Button';
 import SearchIcon from '@material-ui/icons/Search';
 import Grid from '@material-ui/core/Grid';
@@ -21,10 +22,21 @@ const useStyles = makeStyles(theme => ({
     backgroundRepeat: 'no-repeat',
     backgroundSize: 'cover',
   },
+  titleGrid: {
+    marginTop: '80px',
+    textAlign: 'center',
+  },
+  titleContainer: {
+    padding: '40px',
+  },
+  title: {
+    color: '#a4d0d4e3',
+    fontFamily: 'Helvetica,Arial,sans-serif',
+    fontWeight: 'bold',
+  },
   search: {
     position: 'relative',
     borderRadius: theme.shape.borderRadius,
-    marginTop: '280px',
     backgroundColor: 'white',
     oppacity: 0.4,
     marginLeft: 0,
@@ -55,6 +67,25 @@ function SearchMovies(props) {
       <AppBar position="static" className={classes.header}>
         <Toolbar>
           <Grid container direction="row" spacing={1} justify="center">
+            <Grid
+              item
+              container
+              xs={8}
+              direction="row"
+              justify="space-between"
+              className={classes.titleGrid}
+            >
+              <Grid item xs={12} className={classes.titleContainer}>
+                <Typography variant="h1" className={classes.title}>
+                  Your favorite movies. Explained.
+                </Typography>
+
+                <Typography variant="h4" className={classes.title}>
+                  Figure out what happened. Then find out why.
+                </Typography>
+              </Grid>
+            </Grid>
+
             <Grid
               item
               container

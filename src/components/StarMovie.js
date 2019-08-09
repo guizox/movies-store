@@ -19,14 +19,14 @@ const styles = () => ({
 
 const StarMovie = ({ rate, classes }) => (
   <Fragment>
-    <span className={classes.text}>{rate}</span>
+    <span className={classes.text}>{rate ? parseFloat(rate).toFixed(1) : ''}</span>
     <StarRate className={classes.star} />
   </Fragment>
 );
 
 StarMovie.propTypes = {
   rate: PropTypes.number.isRequired,
-  classes: PropTypes.object.isRequired,
+  classes: PropTypes.shape({}).isRequired,
 };
 
 export default withStyles(styles)(StarMovie);
