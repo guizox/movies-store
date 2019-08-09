@@ -1,7 +1,6 @@
 import Apis from 'apis';
-import config from '@/config.json';
 
-export const api = Apis({ baseURL: `${config.{{moduleName}} }` });
+export const api = Apis({ baseURL: `${{{moduleName}} }` });
 
 export default { 
    request: () => `/` 

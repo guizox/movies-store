@@ -1,7 +1,6 @@
 import { takeLatest, put, all } from 'redux-saga/effects';
 import { isRequestOK } from 'utils/helpers';
 import { {{ moduleName }}Request, {{ moduleName }}Fulfilled, {{ moduleName }}Rejected } from './actions';
-import { showErrorNotification } from 'modules/ui/notifications/actions';
 import endpoints, { api } from './endpoints';
 
 function* {{ moduleName }}RequestSaga() {
