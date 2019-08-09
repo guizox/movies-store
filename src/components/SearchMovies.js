@@ -18,6 +18,8 @@ const useStyles = makeStyles(theme => ({
     background:
       'url(https://www.pixelstalk.net/wp-content/uploads/2016/07/HD-Marvel-Movies-Iphone-Background.jpg)',
     height: '400px',
+    backgroundRepeat: 'no-repeat',
+    backgroundSize: 'cover',
   },
   search: {
     position: 'relative',

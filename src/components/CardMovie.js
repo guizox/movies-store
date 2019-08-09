@@ -20,7 +20,7 @@ import PropTypes from 'prop-types';
 
 const useStyles = makeStyles(theme => ({
   card: {
-    maxWidth: 345,
+    maxWidth: '99%',
   },
   media: {
     height: 0,
